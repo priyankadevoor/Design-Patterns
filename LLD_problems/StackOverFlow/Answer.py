@@ -4,6 +4,7 @@ class Answer:
         self.content = content
         self.author = author
         self.comments = []
+        self.votes = []
     
     def get_answer(self):
         return self.content
@@ -19,4 +20,12 @@ class Answer:
         for comment in self.comments:
             comments += comment.get_comment()
         return comments
+
+    def add_vote(self, vote):
+        self.votes.append(vote)
     
+    def get_votes(self):
+        val = 0
+        for vote in self.votes:
+            val += vote.get_value()
+        return val

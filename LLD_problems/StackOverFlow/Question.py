@@ -6,6 +6,7 @@ class Question:
         self.author = author
         self.answers = []
         self.comments = []
+        self.votes = []
 
     def get_answers(self):
         answers = ''
@@ -24,3 +25,12 @@ class Question:
         for comment in self.comments:
             comments += comment.get_comment()
         return comments
+
+    def add_vote(self, vote):
+        self.votes.append(vote)
+    
+    def get_votes(self):
+        val = 0
+        for vote in self.votes:
+            val += vote.get_value()
+        return val

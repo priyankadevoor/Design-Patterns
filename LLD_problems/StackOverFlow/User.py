@@ -10,15 +10,16 @@ class User:
         self.answers = []
         self.comments = []
 
-    def post_question(self, title, author):
-        question = Question(title, author)
+    def post_question(self, title):
+        question = Question(title, self)
         self.questions.append(question)
         return question
 
-    def post_answer(self, question, content, author):
-        answer = Answer(content, author)
+    def post_answer(self, question, content):
+        answer = Answer(content, self)
         question.add_answer(answer)
+        return answer
 
-    def add_comment(self, ques_or_ans_obj, content, author):
-        comment = Comment(content, author)
+    def add_comment(self, ques_or_ans_obj, content):
+        comment = Comment(content, self)
         ques_or_ans_obj.add_comment(comment)
