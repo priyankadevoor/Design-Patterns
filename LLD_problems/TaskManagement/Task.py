@@ -1,12 +1,15 @@
 class Task:
-    def __init__(self, title, description, status, priority, due_date, assigned_to, assigned_by):
+    def __init__(self, task_id, title, description, status, priority, due_date, assigned_to):
+        self._id = task_id
         self._title = title
         self._description = description
         self._status = status
         self._priority = priority
         self._due_date = due_date
         self._assigned_to = assigned_to
-        self._assigned_by = assigned_by
+
+    def get_taskid(self):
+        return self._id
 
     def get_title(self):
         return self._title
@@ -34,6 +37,6 @@ class Task:
 
     def get_assigned_to(self):
         return self._assigned_to
-    
-    def get_assigned_by(self):
-        return self._assigned_by
+
+    def change_assigned_to(self, assigned_to):
+        self._assigned_to = assigned_to
